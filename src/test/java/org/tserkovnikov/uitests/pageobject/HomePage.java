@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
+
     private final WebDriver driver;
     HomePage(WebDriver driver) {
         this.driver = driver;

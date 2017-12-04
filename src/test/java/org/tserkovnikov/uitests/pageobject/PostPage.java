@@ -3,7 +3,6 @@ package org.tserkovnikov.uitests.pageobject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -15,9 +14,6 @@ public class PostPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(xpath = "//div[@id='comments']//a[text()='Добавить комментарий']")
-    private WebElement addCommentButton;
 
     public boolean isAddCommentButtonExist() {
         By xpath = By.xpath("//div[@id='comments']//a[text()='Добавить комментарий']");

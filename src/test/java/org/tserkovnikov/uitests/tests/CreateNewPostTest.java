@@ -42,7 +42,7 @@ public class CreateNewPostTest extends BaseTest {
 
     @Test
     public void createPostWithHashtag() throws InterruptedException, IOException {
-        String hashtag = "testHashTag";
+        String hashtag = "testhashtag";
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         Map<String, String> titleToBody = context.getTitleToBody();
