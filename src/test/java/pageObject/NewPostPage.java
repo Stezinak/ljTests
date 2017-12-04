@@ -32,7 +32,6 @@ public class NewPostPage {
     public PostPage savePost() throws InterruptedException {
         setupAndPublishButton.click();
         publishButton.click();
-        //TimeUnit.SECONDS.sleep(3); // далеко не лучший способ подождать, что пост создался.
         return new PostPage();
     }
 
