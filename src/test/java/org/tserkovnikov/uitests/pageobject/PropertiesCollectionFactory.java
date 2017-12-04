@@ -12,10 +12,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
+// инициализируем работу - прописываем путь к chromedriver, выставляем таймер неявного ожидания объектов
+// и загрузки страницы, разворачиваем браузер на весь экран
 public class PropertiesCollectionFactory {
-    PropertiesCollection2 create() {
-        String authPath = "src/test/testData/auth.json";
+    public PropertiesCollection2 create() {
+        String authPath = "src/test/resources/auth.json";
         JSONParser parser = new JSONParser();
         String username;
         String password;
@@ -28,7 +29,7 @@ public class PropertiesCollectionFactory {
             throw new IllegalStateException("Не удалось настроить тест", e);
         }
 
-        String postsPath = "src/test/testData/posts.json";
+        String postsPath = "src/test/resources/posts.json";
         Map<String, String> titleToBody;
         try {
             titleToBody = new ObjectMapper().readValue(new File(postsPath), new TypeReference<Map<String, String>>() {

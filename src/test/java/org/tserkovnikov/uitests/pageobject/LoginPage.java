@@ -8,11 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static org.tserkovnikov.uitests.pageobject.PropertiesCollection.driver;
-
 public class LoginPage {
 
+    private final WebDriver driver;
+
     public LoginPage(WebDriver driver, String url) {
+        this.driver = driver;
         driver.get(url);
         PageFactory.initElements(driver, this);
     }
@@ -34,7 +35,7 @@ public class LoginPage {
         usernameInput.sendKeys(user);
         passwordInput.sendKeys(password);
         logInButton.click();
-        return new HomePage();
+        return new HomePage(driver);
     }
 
     public boolean isWrongPasswordLabelExist() {

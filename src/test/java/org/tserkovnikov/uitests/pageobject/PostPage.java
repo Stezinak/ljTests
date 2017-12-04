@@ -1,17 +1,19 @@
 package org.tserkovnikov.uitests.pageobject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static org.tserkovnikov.uitests.pageobject.PropertiesCollection.driver;
-
 public class PostPage {
-    public PostPage() {
-        PageFactory.initElements(PropertiesCollection.driver, this);
+    private final WebDriver driver;
+
+    PostPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//div[@id='comments']//a[text()='Добавить комментарий']")

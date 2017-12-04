@@ -1,12 +1,16 @@
 package org.tserkovnikov.uitests.pageobject;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NewPostPage {
-    public NewPostPage() {
-        PageFactory.initElements(PropertiesCollection.driver, this);
+    private final WebDriver driver;
+
+    NewPostPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//div[@id='editorWrapper']//div[@class='DraftEditor-root']//div[@class='public-DraftEditor-content']")
@@ -32,7 +36,7 @@ public class NewPostPage {
     public PostPage savePost() throws InterruptedException {
         setupAndPublishButton.click();
         publishButton.click();
-        return new PostPage();
+        return new PostPage(driver);
     }
 
     public void addHashtag(String tag) {
