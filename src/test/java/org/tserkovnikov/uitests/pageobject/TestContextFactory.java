@@ -12,10 +12,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
 // инициализируем работу - прописываем путь к chromedriver, выставляем таймер неявного ожидания объектов
 // и загрузки страницы, разворачиваем браузер на весь экран
-public class PropertiesCollectionFactory {
-    public PropertiesCollection2 create() {
+public class TestContextFactory {
+    public TestContext create() {
         String authPath = "src/test/resources/auth.json";
         JSONParser parser = new JSONParser();
         String username;
@@ -43,6 +44,6 @@ public class PropertiesCollectionFactory {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        return new PropertiesCollection2(driver, username, password, titleToBody);
+        return new TestContext(driver, username, password, titleToBody);
     }
 }

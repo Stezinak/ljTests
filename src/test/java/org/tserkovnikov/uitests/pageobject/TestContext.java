@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import java.util.Collections;
 import java.util.Map;
 
-public class PropertiesCollection2 {
+public class TestContext {
     private final WebDriver driver;
     private final String username;// =  "tecforceTask";
     private final String password;// = "tecTask12345";
     private final Map<String, String> titleToBody;
 
-    public PropertiesCollection2(WebDriver driver, String username, String password, Map<String, String> titleToBody) {
+    TestContext(WebDriver driver, String username, String password, Map<String, String> titleToBody) {
         this.driver = driver;
         this.username = username;
         this.password = password;
