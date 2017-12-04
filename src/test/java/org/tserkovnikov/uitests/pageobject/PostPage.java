@@ -26,4 +26,16 @@ public class PostPage {
         List<WebElement> elements = driver.findElements(xpath);
         return !elements.isEmpty();
     }
+
+    public boolean doesPageContainsTitle(String title){
+        By xpath = By.xpath("//h1[@class='aentry-post__title']//span[text()='" + title + "']");
+        List<WebElement> elements = driver.findElements(xpath);
+        return !elements.isEmpty();
+    }
+
+    public boolean doesPageContainsBody(String body){
+        By xpath = By.xpath("//div[@class='aentry-post__content']//p[text()='" + body + "']");
+        List<WebElement> elements = driver.findElements(xpath);
+        return !elements.isEmpty();
+    }
 }

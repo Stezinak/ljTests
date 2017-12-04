@@ -33,7 +33,7 @@ public class NewPostPage {
         postBody.sendKeys(body);
     }
 
-    public PostPage savePost() throws InterruptedException {
+    public PostPage savePost() {
         setupAndPublishButton.click();
         publishButton.click();
         return new PostPage(driver);

@@ -16,9 +16,13 @@ public class CreateNewPostTest extends BaseTest {
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         Map<String, String> titleToBody = context.getTitleToBody();
-        newPostPage.writePost(GenerateData.getRandomTitle(), titleToBody.get("title 1"));
+        String title = GenerateData.getRandomTitle();
+        String body = titleToBody.get("title 1");
+        newPostPage.writePost(title, body);
         PostPage postPage = newPostPage.savePost();
         Assert.assertTrue(postPage.isAddCommentButtonExist());
+        Assert.assertTrue(postPage.doesPageContainsTitle(title));
+        Assert.assertTrue(postPage.doesPageContainsBody(body));
     }
 
     @Test
@@ -26,9 +30,11 @@ public class CreateNewPostTest extends BaseTest {
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         Map<String, String> titleToBody = context.getTitleToBody();
-        newPostPage.writePost("", titleToBody.get("title 2"));
+        String body = titleToBody.get("title 2");
+        newPostPage.writePost("", body);
         PostPage postPage = newPostPage.savePost();
         Assert.assertTrue(postPage.isAddCommentButtonExist());
+        Assert.assertTrue(postPage.doesPageContainsBody(body));
     }
 
     @Test
@@ -46,10 +52,14 @@ public class CreateNewPostTest extends BaseTest {
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         Map<String, String> titleToBody = context.getTitleToBody();
-        newPostPage.writePost(GenerateData.getRandomTitle(), titleToBody.get("title 1"));
+        String title = GenerateData.getRandomTitle();
+        String body = titleToBody.get("title 1");
+        newPostPage.writePost(title, body);
         newPostPage.addHashtag(hashtag);
         PostPage postPage = newPostPage.savePost();
         Assert.assertTrue(postPage.isHashtagExist(hashtag));
         Assert.assertTrue(postPage.isAddCommentButtonExist());
+        Assert.assertTrue(postPage.doesPageContainsTitle(title));
+        Assert.assertTrue(postPage.doesPageContainsBody(body));
     }
 }

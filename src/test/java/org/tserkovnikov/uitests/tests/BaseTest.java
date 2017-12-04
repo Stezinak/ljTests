@@ -11,7 +11,7 @@ import org.tserkovnikov.uitests.pageobject.TestContextFactory;
 import java.io.IOException;
 
 // конечно, базовый класс должен быть в другом месте, а тесты разделены по категориям, но их очень мало, чтобы разделить по какому-то признаку
-public abstract class BaseTest {
+public class BaseTest {
 
     LoginPage loginPage;
     TestContext context;
