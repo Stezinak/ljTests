@@ -3,6 +3,7 @@ package org.tserkovnikov.uitests.tests;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.tserkovnikov.uitests.helpers.TestConstants;
 import org.tserkovnikov.uitests.pageobject.LoginPage;
 import org.tserkovnikov.uitests.pageobject.TestContext;
 import org.tserkovnikov.uitests.pageobject.TestContextFactory;
@@ -15,14 +16,13 @@ public abstract class BaseTest {
     LoginPage loginPage;
     TestContext context;
 
-
     // забираем данные для авторизации из json файла, открываем страницу lj
     @Before
     public void setup() throws IOException {
         TestContextFactory factory = new TestContextFactory();
         this.context = factory.create();
         // мы заходим на эту страницу в каждом тесте, поэтому я вынес это действие сюда (помогает избежать дублирования)
-        this.loginPage = new LoginPage(context.getDriver(), "https://www.livejournal.com");
+        this.loginPage = new LoginPage(context.getDriver(), TestConstants.URL);
     }
 
     @After

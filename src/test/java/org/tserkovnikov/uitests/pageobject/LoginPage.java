@@ -41,8 +41,7 @@ public class LoginPage {
     public boolean isWrongPasswordLabelExist() {
         By xpath = By.xpath("//span[@class='b-loginform-field__errorMsg ng-binding']");
         List<WebElement> elements = driver.findElements(xpath);
-        int number = elements.size();
-        return (number > 0);
+        return !elements.isEmpty();
     }
 
 }

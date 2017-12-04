@@ -22,14 +22,12 @@ public class PostPage {
     public boolean isAddCommentButtonExist() {
         By xpath = By.xpath("//div[@id='comments']//a[text()='Добавить комментарий']");
         List<WebElement> elements = driver.findElements(xpath);
-        int number = elements.size();
-        return (number > 0);
+        return !elements.isEmpty();
     }
 
     public boolean isHashtagExist(String tagText) {
         By xpath = By.xpath("//div[@class='aentry-tags']//a[text()='" + tagText + "']");
         List<WebElement> elements = driver.findElements(xpath);
-        int number = elements.size();
-        return (number > 0);
+        return !elements.isEmpty();
     }
 }
