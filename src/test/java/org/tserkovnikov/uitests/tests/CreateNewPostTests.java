@@ -1,12 +1,12 @@
-package tests;
+package org.tserkovnikov.uitests.tests;
 
-import helpers.GenerateData;
+import org.tserkovnikov.uitests.helpers.GenerateData;
 import org.junit.Assert;
 import org.junit.Test;
-import pageObject.HomePage;
-import pageObject.NewPostPage;
-import pageObject.PostPage;
-import pageObject.PropertiesCollection;
+import org.tserkovnikov.uitests.pageobject.HomePage;
+import org.tserkovnikov.uitests.pageobject.NewPostPage;
+import org.tserkovnikov.uitests.pageobject.PostPage;
+import org.tserkovnikov.uitests.pageobject.PropertiesCollection;
 
 import java.io.IOException;
 

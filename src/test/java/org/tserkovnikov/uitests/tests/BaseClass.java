@@ -1,15 +1,15 @@
-package tests;
+package org.tserkovnikov.uitests.tests;
 
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.LoginPage;
-import pageObject.PropertiesCollection;
+import org.tserkovnikov.uitests.pageobject.LoginPage;
+import org.tserkovnikov.uitests.pageobject.PropertiesCollection;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static pageObject.PropertiesCollection.driver;
+import static org.tserkovnikov.uitests.pageobject.PropertiesCollection.driver;
 
 // конечно, базовый класс должен быть в другом месте, а тесты разделены по категориям, но их очень мало, чтобы разделить по какому-то признаку
 public class BaseClass {

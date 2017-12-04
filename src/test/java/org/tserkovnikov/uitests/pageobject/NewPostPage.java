@@ -1,4 +1,4 @@
-package pageObject;
+package org.tserkovnikov.uitests.pageobject;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

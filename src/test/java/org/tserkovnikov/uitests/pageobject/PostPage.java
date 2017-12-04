@@ -1,11 +1,11 @@
-package pageObject;
+package org.tserkovnikov.uitests.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static pageObject.PropertiesCollection.driver;
+import static org.tserkovnikov.uitests.pageobject.PropertiesCollection.driver;
 
 public class PostPage {
     public PostPage(){

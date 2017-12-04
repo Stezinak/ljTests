@@ -1,4 +1,4 @@
-package pageObject;
+package org.tserkovnikov.uitests.pageobject;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

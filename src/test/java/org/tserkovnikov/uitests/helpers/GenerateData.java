@@ -1,4 +1,4 @@
-package helpers;
+package org.tserkovnikov.uitests.helpers;
 
 import java.util.Random;
 

@@ -1,9 +1,9 @@
-package tests;
+package org.tserkovnikov.uitests.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import pageObject.HomePage;
-import pageObject.PropertiesCollection;
+import org.tserkovnikov.uitests.pageobject.HomePage;
+import org.tserkovnikov.uitests.pageobject.PropertiesCollection;
 
 public class AuthorizationTests extends BaseClass {
 
