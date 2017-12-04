@@ -30,7 +30,7 @@ public class BaseClass {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 

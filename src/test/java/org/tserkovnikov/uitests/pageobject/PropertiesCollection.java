@@ -35,7 +35,8 @@ public class PropertiesCollection {
     // через jackson
     public static void parsePosts() throws IOException {
         String postsPath = "src/test/testData/posts.json";
-        result = new ObjectMapper().readValue(new File(postsPath), new TypeReference<Map<String, String>>() {});
+        result = new ObjectMapper().readValue(new File(postsPath), new TypeReference<Map<String, String>>() {
+        });
     }
 
 }

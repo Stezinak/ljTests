@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    public HomePage(){
+    public HomePage() {
         PageFactory.initElements(PropertiesCollection.driver, this);
     }
 
@@ -20,8 +20,7 @@ public class HomePage {
 
     // простой способ проверить, загрузилась ли страница.
     // Если мы успешно авторизовались, то должна появиться эта кнопка.
-    public boolean isHomePageLoaded()
-    {
+    public boolean isHomePageLoaded() {
         return writeToBlogButton.isDisplayed();
     }
 

@@ -10,13 +10,13 @@ import org.tserkovnikov.uitests.pageobject.PropertiesCollection;
 
 import java.io.IOException;
 
-public class CreateNewPostTests extends BaseClass{
+public class CreateNewPostTests extends BaseClass {
     @Test
     public void createPostPositive() throws InterruptedException, IOException {
         // получаем данные для авторизации
         PropertiesCollection.parsePosts();
 
-        HomePage homepage = loginPage.LoginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
+        HomePage homepage = loginPage.loginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         newPostPage.writePost(GenerateData.getRandomTitle(), PropertiesCollection.result.get("title 1"));
         PostPage postPage = newPostPage.savePost();
@@ -27,7 +27,7 @@ public class CreateNewPostTests extends BaseClass{
     public void createPostPositiveNoTitle() throws InterruptedException, IOException {
         PropertiesCollection.parsePosts();
 
-        HomePage homepage = loginPage.LoginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
+        HomePage homepage = loginPage.loginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         newPostPage.writePost("", PropertiesCollection.result.get("title 2"));
         PostPage postPage = newPostPage.savePost();
@@ -38,7 +38,7 @@ public class CreateNewPostTests extends BaseClass{
     public void createPostNegativeNoBody() throws InterruptedException, IOException {
         PropertiesCollection.parsePosts();
 
-        HomePage homepage = loginPage.LoginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
+        HomePage homepage = loginPage.loginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         newPostPage.writePost(GenerateData.getRandomTitle(), "");
         PostPage postPage = newPostPage.savePost();
@@ -50,7 +50,7 @@ public class CreateNewPostTests extends BaseClass{
         String hashtag = "testHashTag";
         PropertiesCollection.parsePosts();
 
-        HomePage homepage = loginPage.LoginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
+        HomePage homepage = loginPage.loginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
         newPostPage.writePost(GenerateData.getRandomTitle(), PropertiesCollection.result.get("title 1"));
         newPostPage.addHashtag(hashtag);
@@ -59,5 +59,5 @@ public class CreateNewPostTests extends BaseClass{
         Assert.assertTrue(postPage.isAddCommentButtonExist());
     }
 
-        
+
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NewPostPage {
-    public NewPostPage(){
+    public NewPostPage() {
         PageFactory.initElements(PropertiesCollection.driver, this);
     }
 
@@ -24,7 +24,7 @@ public class NewPostPage {
     @FindBy(xpath = "//input[@class='_y6 _vx']")
     private WebElement tagInputField;
 
-    public void writePost(String head, String body){
+    public void writePost(String head, String body) {
         postHead.sendKeys(head);
         postBody.sendKeys(body);
     }
@@ -35,7 +35,7 @@ public class NewPostPage {
         return new PostPage();
     }
 
-    public void addHashtag(String tag){
+    public void addHashtag(String tag) {
         tagInputField.sendKeys(tag);
     }
 

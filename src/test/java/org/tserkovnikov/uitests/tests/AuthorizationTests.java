@@ -9,16 +9,16 @@ public class AuthorizationTests extends BaseClass {
 
 
     @Test
-    public void authorizationPositive(){
+    public void authorizationPositive() {
         //заходим на страницу, вводим значения, загруженные из json
-        HomePage homepage = loginPage.LoginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
+        HomePage homepage = loginPage.loginToLiveJournal(PropertiesCollection.username, PropertiesCollection.password);
         //проверяем, загрузилась ли домашняя страница
         Assert.assertTrue(homepage.isHomePageLoaded());
     }
 
     @Test
-    public void authorizationNegative(){
-        loginPage.LoginToLiveJournal(PropertiesCollection.username, "wrongpassword");
+    public void authorizationNegative() {
+        loginPage.loginToLiveJournal(PropertiesCollection.username, "wrongpassword");
         Assert.assertTrue(loginPage.isWrongPasswordLabelExist());
     }
 
