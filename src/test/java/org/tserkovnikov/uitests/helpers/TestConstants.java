@@ -1,7 +1,8 @@
 package org.tserkovnikov.uitests.helpers;
 
 public class TestConstants {
-    private TestConstants(){};
+    private TestConstants() {
+    }
 
     public static final String AUTH_PATH = "src/test/resources/auth.json";
     public static final String POSTSPATH = "src/test/resources/posts.json";

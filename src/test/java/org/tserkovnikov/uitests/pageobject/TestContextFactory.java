@@ -20,11 +20,10 @@ public class TestContextFactory {
         String password = authData.get("password");
         Map<String, String> titleToBody = getTitleToBody();
         WebDriver driver = setupWebdriver();
-
         return new TestContext(driver, username, password, titleToBody);
     }
 
-    private Map<String, String>  getTitleToBody(){
+    private Map<String, String> getTitleToBody() {
         Map<String, String> titleToBody;
         try {
             titleToBody = new ObjectMapper().readValue(new File(TestConstants.POSTSPATH), new TypeReference<Map<String, String>>() {
@@ -35,7 +34,7 @@ public class TestContextFactory {
         return titleToBody;
     }
 
-    private Map<String, String> getAuthData(){
+    private Map<String, String> getAuthData() {
         Map<String, String> authData;
         try {
             authData = new ObjectMapper().readValue(new File(TestConstants.AUTH_PATH), new TypeReference<Map<String, String>>() {
@@ -46,7 +45,7 @@ public class TestContextFactory {
         return authData;
     }
 
-    private WebDriver setupWebdriver(){
+    private WebDriver setupWebdriver() {
         System.setProperty(TestConstants.REGISTRYVALUE, TestConstants.CHROMEDRIVER_PATH);
         ChromeDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
