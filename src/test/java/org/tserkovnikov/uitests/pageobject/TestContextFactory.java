@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.tserkovnikov.uitests.helpers.TestConstants;
 
 import java.io.File;
@@ -47,11 +48,12 @@ public class TestContextFactory {
     }
 
     private WebDriver setupWebdriver() {
-        System.setProperty(TestConstants.REGISTRYVALUE, TestConstants.CHROMEDRIVER_PATH);
-        ChromeDriver driver = new ChromeDriver();
+        System.setProperty(TestConstants.REGISTRYVALUE, getChromeDriverPath());
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--kiosk");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         return driver;
     }
 
