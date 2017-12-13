@@ -3,6 +3,7 @@ package org.tserkovnikov.uitests.pageobject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -33,6 +34,7 @@ public class LoginPage {
     public HomePage loginToLiveJournal(String user, String password) {
         loginButton.click();
         usernameInput.sendKeys(user);
+        passwordInput.click();
         passwordInput.sendKeys(password);
         logInButton.click();
         return new HomePage(driver);
@@ -44,4 +46,21 @@ public class LoginPage {
         return !elements.isEmpty();
     }
 
+    public void checkLanguageAndSetToRussian(){
+        By mainButtonXpath = By.xpath("//a[text()='Main']");
+        List<WebElement> elements = driver.findElements(mainButtonXpath);
+
+        if (!elements.isEmpty()) {
+            // меняем язык lj на русский
+            Actions action = new Actions(driver);
+            By englishMenuXpath = By.xpath("//a[@href='https://www.livejournal.com/manage/settings/?cat=display']");
+            WebElement englishMenu = driver.findElement(englishMenuXpath );
+            action.moveToElement(englishMenu);
+            mainButtonXpath = By.xpath("//a[text()='Русский (ru)']");
+            WebElement russianOption = driver.findElement(mainButtonXpath);
+            action.click(russianOption);
+            action.perform();
+        }
+        //
+    }
 }

@@ -47,7 +47,7 @@ public class TestContextFactory {
     }
 
     private WebDriver setupWebdriver() {
-        System.setProperty(TestConstants.REGISTRYVALUE, getChromeDriverPath());
+        System.setProperty(TestConstants.REGISTRYVALUE, TestConstants.CHROMEDRIVER_PATH);
         ChromeDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);

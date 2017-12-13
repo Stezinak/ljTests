@@ -29,6 +29,7 @@ public class CreateNewPostTest extends BaseTest {
     public void createPostPositiveNoTitle() throws InterruptedException, IOException {
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
+        newPostPage.checkForDraftAndCancelIfExist();
         Map<String, String> titleToBody = context.getTitleToBody();
         String body = titleToBody.get("title 2");
         newPostPage.writePost("", body);
@@ -41,6 +42,7 @@ public class CreateNewPostTest extends BaseTest {
     public void createPostNegativeNoBody() throws InterruptedException, IOException {
         HomePage homepage = loginPage.loginToLiveJournal(context.getUsername(), context.getPassword());
         NewPostPage newPostPage = homepage.openWriteToBlogPage();
+        newPostPage.checkForDraftAndCancelIfExist();
         newPostPage.writePost(GenerateData.getRandomTitle(), "");
         PostPage postPage = newPostPage.savePost();
         Assert.assertFalse(postPage.isAddCommentButtonExist());
@@ -54,6 +56,7 @@ public class CreateNewPostTest extends BaseTest {
         Map<String, String> titleToBody = context.getTitleToBody();
         String title = GenerateData.getRandomTitle();
         String body = titleToBody.get("title 1");
+        newPostPage.checkForDraftAndCancelIfExist();
         newPostPage.writePost(title, body);
         newPostPage.addHashtag(hashtag);
         PostPage postPage = newPostPage.savePost();

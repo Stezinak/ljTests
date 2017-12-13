@@ -35,8 +35,4 @@ public class TestContext {
     public Map<String, String> getTitleToBody() {
         return titleToBody;
     }
-
-    public String getChromeDriverPath() {
-        return chromeDriverPath;
-    }
 }

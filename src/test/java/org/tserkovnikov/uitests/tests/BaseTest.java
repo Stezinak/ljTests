@@ -23,6 +23,7 @@ public class BaseTest {
         this.context = factory.create();
         // мы заходим на эту страницу в каждом тесте, поэтому я вынес это действие сюда (помогает избежать дублирования)
         this.loginPage = new LoginPage(context.getDriver(), TestConstants.URL);
+//        this.loginPage.checkLanguageAndSetToRussian();
     }
 
     @After
