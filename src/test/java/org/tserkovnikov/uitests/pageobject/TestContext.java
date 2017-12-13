@@ -10,12 +10,14 @@ public class TestContext {
     private final String username;// = "tecforceTask";
     private final String password;// = "tecTask12345";
     private final Map<String, String> titleToBody;
+    private final String chromeDriverPath;
 
-    TestContext(WebDriver driver, String username, String password, Map<String, String> titleToBody) {
+    TestContext(WebDriver driver, String username, String password, Map<String, String> titleToBody, String chromeDriverPath) {
         this.driver = driver;
         this.username = username;
         this.password = password;
         this.titleToBody = Collections.unmodifiableMap(titleToBody);
+        this.chromeDriverPath = chromeDriverPath;
     }
 
     public WebDriver getDriver() {
@@ -32,5 +34,9 @@ public class TestContext {
 
     public Map<String, String> getTitleToBody() {
         return titleToBody;
+    }
+
+    public String getChromeDriverPath() {
+        return chromeDriverPath;
     }
 }

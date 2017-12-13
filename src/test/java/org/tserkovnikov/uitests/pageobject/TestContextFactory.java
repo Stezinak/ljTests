@@ -20,7 +20,8 @@ public class TestContextFactory {
         String password = authData.get("password");
         Map<String, String> titleToBody = getTitleToBody();
         WebDriver driver = setupWebdriver();
-        return new TestContext(driver, username, password, titleToBody);
+        String chromedriverPath = getChromeDriverPath();
+        return new TestContext(driver, username, password, titleToBody, chromedriverPath);
     }
 
     private Map<String, String> getTitleToBody() {
@@ -46,11 +47,18 @@ public class TestContextFactory {
     }
 
     private WebDriver setupWebdriver() {
-        System.setProperty(TestConstants.REGISTRYVALUE, TestConstants.CHROMEDRIVER_PATH);
+        System.setProperty(TestConstants.REGISTRYVALUE, getChromeDriverPath());
         ChromeDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
+    }
+
+    private String getChromeDriverPath() {
+        String osVersion = System.getProperty("os.name").toLowerCase();
+        if (osVersion.contains("win")) return "libs/chromedriver.exe";
+        if (osVersion.contains("nix")) return "libs/chromedriver_unix";
+        return null;
     }
 }
